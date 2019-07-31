@@ -1,0 +1,1 @@
+<? require 'api/functions.php';
