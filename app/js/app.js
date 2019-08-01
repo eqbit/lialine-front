@@ -61,6 +61,12 @@ const handleDatepicker = function (selector) {
   const $datePickerFrom = $(selector);
   
   if ($datePickerFrom.length) {
+    
+    $datePickerFrom.parent().on('click', function (e) {
+      e.stopPropagation();
+      $datePickerFrom.trigger('click');
+    });
+    
     $datePickerFrom.dateRangePicker({
       language: 'ru',
       startOfWeek: 'monday',
@@ -73,10 +79,27 @@ const handleDatepicker = function (selector) {
       startDate: new Date(),
       separator: ' по ',
       setValue: function (s, s1, s2) {
-        $datePickerFrom.val(`c ${s1} по ${s2}`);
+        let date = new Date(s1).toLocaleDateString("ru-RU"),
+          startDate= new Date(s1),
+          endDate = new Date(s2),
+          totalDays = Math.floor((Math.abs(endDate - startDate) / 1000) / 86400);
+        
+        $datePickerFrom.val(`${date}, ${totalDays} ${getDays(totalDays)}`);
       }
     });
   }
+};
+
+const getDays = function(number) {
+  if(number > 4 && number < 21) return 'дней';
+  
+  let remainder =  number % 10;
+  
+  return remainder < 2
+    ? 'день'
+    : remainder > 4
+      ? 'дней'
+      : 'дня'
 };
 
 const handleTopScreenSlider = function () {
@@ -88,8 +111,9 @@ const handleTopScreenSlider = function () {
       dots: true,
       appendDots: '.top-screen-dots',
       arrows: false,
-      lazyLoad: 'ondemand',
+      lazyLoad: 'progressive',
       adaptiveHeight: true,
+      swipeToSlide: true,
       responsive: [
         {
           breakpoint: 760,
@@ -175,6 +199,7 @@ const handleCommonSliders = function () {
         appendDots: $slider.find('.custom-slick-dots'),
         prevArrow: $slider.find('[data-common-prev]'),
         nextArrow: $slider.find('[data-common-next]'),
+        swipeToSlide: true,
         responsive: [
           {
             breakpoint: 1300,
@@ -211,6 +236,7 @@ const handleCountrySlider = function () {
       appendDots: $countrySlider.find('.custom-slick-dots'),
       prevArrow: $countrySlider.find('[data-common-prev]'),
       nextArrow: $countrySlider.find('[data-common-next]'),
+      swipeToSlide: true,
       responsive: [
         {
           breakpoint: 1300,
@@ -322,6 +348,8 @@ const createFooterMap = function () {
     zoom: 15,
     controls: [smallZoomControl]
   });
+  
+  map.behaviors.disable('scrollZoom');
   
   map.geoObjects.add(new ymaps.Placemark(coordinates, {
     iconCaption: 'офис 204/220'
@@ -459,6 +487,7 @@ const handleGallerySlider = function () {
       nextArrow: $('[data-offer-slider-next]'),
       dots: true,
       appendDots: '.offer-gallery-slider-dots',
+      lazyLoad: 'progressive'
     });
     
     $sliderThumbs.slick({
@@ -467,6 +496,7 @@ const handleGallerySlider = function () {
       asNavFor: $sliderFull,
       arrows: false,
       focusOnSelect: true,
+      swipeToSlide: true,
       prevArrow: $('[data-offer-slider-prev]'),
       nextArrow: $('[data-offer-slider-next]'),
       responsive: [

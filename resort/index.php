@@ -132,7 +132,7 @@
             
             <div class="common-slider-inner" data-common-slider-inner>
                 <? for($i = 0; $i < 5; $i++) : ?>
-                    <a href="#" class="hotels-item">
+                    <div class="hotels-item">
                         <div class="hotels-item__img">
                             <img src="/app/images/hotels.png" alt="">
                         </div>
@@ -154,7 +154,7 @@
                                 <? draw_tripadvisor_rating(rand(10, 50) / 10); ?>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 <? endfor; ?>
             </div>
             

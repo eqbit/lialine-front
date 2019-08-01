@@ -36,7 +36,9 @@ function get_top_form($country = false, $resort = false) {
                    class="top-form-date__input"
                    name="date_from"
                    placeholder="Заезд"
-                   data-date-range-from>
+                   data-date-range-from
+                   readonly
+            >
         </div>
         
         <div class="top-form-quantity top-form-item top-form-item-4">

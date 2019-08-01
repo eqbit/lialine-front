@@ -33,6 +33,7 @@ function get_bottom_form($is_simple = true, $country = false, $resort = false) {
                        class="tour-selection-grid-date__input"
                        name="date_from"
                        placeholder="Заезд"
+                       readonly
                        data-date-range-from-f-f>
             </div>
         
@@ -109,6 +110,7 @@ function get_bottom_form($is_simple = true, $country = false, $resort = false) {
                            class="tour-selection-grid-date__input"
                            name="date_from"
                            placeholder="Заезд"
+                           readonly
                            data-date-range-from-s-f>
                 </div>
             
@@ -200,6 +202,7 @@ function get_bottom_form($is_simple = true, $country = false, $resort = false) {
                            class="tour-selection-grid-date__input"
                            name="date_from"
                            placeholder="Заезд"
+                           readonly
                            data-date-range-from-f-f>
                 </div>
             

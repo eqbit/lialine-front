@@ -6,6 +6,7 @@
 
 * {
   box-sizing: border-box;
+  outline: none !important;
 }
 
 $primary: #374F71;
@@ -301,7 +302,7 @@ main {
 
   &.fixed {
     position: fixed;
-    padding: 20px 60px;
+    padding: 12px 60px;
     background: rgba($primary, .8);
 
     .header-copy {
@@ -575,6 +576,7 @@ body {
     align-items: center;
     padding: 0 20px 0 44px;
     position: relative;
+    overflow: hidden;
 
     svg {
       position: absolute;
@@ -2610,4 +2612,8 @@ body {
       transform: none;
     }
   }
+}
+
+input, .nice-select .current {
+  font-size: 15px !important;
 }
