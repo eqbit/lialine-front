@@ -610,11 +610,9 @@ const handleForms = function () {
       url: '/api/ajax.php',
       type: 'POST',
       dataType: 'json',
-      data: {
-        type: 'handleForm',
-        ...window.formData,
-        ...popupData
-      },
+      data: Object.assign({
+        type: 'handleForm'
+      }, window.formData, popupData),
       success: function(response) {
         if(response.status === 'success') {
           hidePopup('request');
@@ -645,10 +643,9 @@ function handleBottomForm(e) {
     url: '/api/ajax.php',
     type: 'POST',
     dataType: 'json',
-    data: {
-      type: 'handleForm',
-      ...data
-    },
+    data: Object.assign({
+      type: 'handleForm'
+    }, data),
     success: function(response) {
       if(response.status === 'success') {
         $form.find('[type=submit]').attr('disabled', 'disabled');
