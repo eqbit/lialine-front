@@ -102,6 +102,7 @@ main {
   cursor: pointer;
   text-decoration: none;
   position: relative;
+  font-family: "Roboto", sans-serif;
 }
 .btn--primary {
   background: linear-gradient(180deg, #FF9D00 0%, #F77B00 100%);
@@ -809,6 +810,10 @@ body .nice-select .list:hover .option:not(:hover).selected {
   display: flex;
   align-items: center;
   position: relative;
+  text-decoration: none;
+}
+.countries-block-top:hover .countries-block-top-link {
+  box-shadow: 0 0 5px rgba(55, 79, 113, 0.2);
 }
 .countries-block-top__img {
   width: 70px;
@@ -1233,13 +1238,13 @@ body .nice-select .list:hover .option:not(:hover).selected {
 .ymaps-2-1-74-zoom__plus .ymaps-2-1-74-zoom__icon {
   width: 70px !important;
   height: 70px !important;
-  background: url("/app/images/ymap-plus.png") !important;
+  background: url("../images/ymap-plus.png") !important;
 }
 
 .ymaps-2-1-74-zoom__minus .ymaps-2-1-74-zoom__icon {
   width: 70px !important;
   height: 70px !important;
-  background: url("/app/images/ymap-minus.png") !important;
+  background: url("../images/ymap-minus.png") !important;
   margin-top: 20px !important;
 }
 
@@ -1472,7 +1477,7 @@ body .nice-select .list:hover .option:not(:hover).selected {
 }
 .possibilities-slider-slide__img {
   position: relative;
-  display: block;
+  /*display: block;*/
 }
 .possibilities-slider-slide__img img {
   width: 100%;
@@ -1620,16 +1625,27 @@ body .nice-select .list:hover .option:not(:hover).selected {
   border-radius: 5px;
   padding: 8px;
   text-decoration: none;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+}
+.e-map-btn__title {
+  cursor: pointer;
 }
 .e-map-btn__price {
   font-size: 18px;
   margin-top: 5px;
+  cursor: pointer;
 }
 .e-map-btn__arrow {
   position: absolute;
   left: 80px;
   top: 99%;
+}
+.e-map-btn__close {
+  position: absolute;
+  right:5px;
+  top: 0px;
+  color: #2a2a2a;
+  text-decoration: none;
 }
 
 .hotels-item {
@@ -1945,9 +1961,51 @@ body .nice-select .list:hover .option:not(:hover).selected {
     padding: 0;
   }
 }
-.offer-gallery-slider-full-item img {
+.offer-gallery-slider-full-item {
+
   border-radius: 5px;
+  overflow: hidden;
+
 }
+
+.possibilities-slider-slide {
+
+
+  border-radius: 5px;
+  overflow: hidden;
+
+}
+
+.offer-gallery-slider-full-item img,
+.possibilities-slider-slide img {
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .offer-gallery-slider-full-item {
+    height:312px;
+  }
+  .possibilities-slider-slide {
+    height:406px;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  .offer-gallery-slider-full-item {height:338px;}
+  .possibilities-slider-slide {height:317px;}
+}
+@media only screen and (min-width: 1280px) and (max-width: 1439px) {
+  .offer-gallery-slider-full-item {height:430px;}
+  .possibilities-slider-slide {height:430px;}
+}
+@media only screen and (min-width: 1440px) {
+  .offer-gallery-slider-full-item {height:500px;}
+  .possibilities-slider-slide {height:450px;}
+}
+
+
 @media only screen and (max-width: 767px) {
   .offer-gallery-slider-full-item {
     margin-bottom: -4px;
@@ -1963,11 +2021,19 @@ body .nice-select .list:hover .option:not(:hover).selected {
     right: 95px;
   }
   .offer-gallery-slider-full-item img {
+    /*
     border-radius: 0;
     height: 260px;
     width: auto;
     max-width: unset;
     object-fit: cover;
+     */
+  }
+  .offer-gallery-slider-full-item {
+    height:262px;
+  }
+  .possibilities-slider-slide {
+    height:262px;
   }
 }
 .offer-gallery-slider-thumbs {
