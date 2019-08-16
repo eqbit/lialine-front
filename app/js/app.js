@@ -19,6 +19,7 @@ $(function () {
   handleForms();
   handleFormClose();
   handleOfferSubmit();
+  handleOverlayClick();
   
   $(window).scroll(function () {
     handleWindowScrollEvents();
@@ -704,4 +705,12 @@ const handleOfferSubmit = function() {
   
     callPopup('request');
   })
+};
+
+const handleOverlayClick = function() {
+  $('.overlay').on('click', function (e) {
+    if(!$(e.target).closest('.popup').length) {
+      $(this).closest('[data-popup]').removeClass('visible');
+    }
+  });
 };
