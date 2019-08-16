@@ -1438,20 +1438,25 @@ body .nice-select .list:hover .option:not(:hover).selected {
 .static-top-screen--offer .static-top-screen__country {
   margin-top: 10px;
 }
-
 .possibilities {
-  display: grid;
-  grid-template-columns: repeat(2, calc(50% - 20px));
-  grid-gap: 40px;
+  display: flex;
   align-items: center;
-}
-@media only screen and (max-width: 1023px) {
-  .possibilities {
-    grid-template-columns: 100%;
-  }
+  flex-wrap: wrap;
 }
 .possibilities-slider-container {
   position: relative;
+  display: inline-block;
+  width: calc(50% - 20px);
+}
+@media only screen and (max-width: 1199px) {
+  .possibilities-slider-container {
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .possibilities-slider-container {
+    width: 100%;
+  }
 }
 .possibilities-slider-arrow {
   position: absolute;
@@ -1506,9 +1511,20 @@ body .nice-select .list:hover .option:not(:hover).selected {
 .possibilities-text {
   padding-right: 120px;
 }
-@media only screen and (max-width: 1199px) {
+.possibilities-text {
+  display: inline-block;
+  width: calc(50% - 20px);
+  margin-left: 40px;
+}
+@media only screen and (max-width: 1399px) {
   .possibilities-text {
     padding: 0;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .possibilities-text {
+    width: 100%;
+    margin: 20px 0 0;
   }
 }
 .possibilities-text__title {
@@ -2369,4 +2385,160 @@ input, .nice-select .current {
   font-size: 15px !important;
 }
 
-/*# sourceMappingURL=app.css.map */
+.popup-close {
+  background-color: #000;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.date-picker-wrapper .month-wrapper table th, .date-picker-wrapper .month-wrapper table td:nth-child(6) .day {
+  color: #a8b5c7 !important;
+}
+
+.date-picker-wrapper .month-wrapper table th, .date-picker-wrapper .month-wrapper table td:nth-child(6) .day.invalid {
+  color: rgba(0,0,0,.3) !important;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .top-form {
+    display: flex;
+  }
+
+  .top-form-item {
+    margin: 1px;
+    flex: 1;
+    min-width: 18%;
+    max-width: 222px;
+  }
+
+  .top-form-select--quantity {
+    max-width: 50% !important;
+  }
+
+  .advantages {
+    display: flex;
+    margin: -15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .advantages-item {
+    margin: 60px 15px 0;
+  }
+
+  .tour-selection-grid-small, .tour-selection-grid-full {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 250px;
+  }
+
+  .tour-selection-grid-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tour-selection-grid-bottom button {
+    margin-left: 40px;
+  }
+
+  .tour-selection-grid-small-item, .tour-selection-grid-full-item {
+    width: 222px;
+    margin: 2px;
+    height: 56px !important;
+    border-radius: 0 !important;
+  }
+
+  .tour-selection-grid-small-item .nice-select, .tour-selection-grid-full-item .nice-select {
+    min-width: 50%;
+    height: 100%;
+  }
+
+  .tour-selection-grid-small-item-3, .tour-selection-grid-full-item-1, .tour-selection-grid-full-item-2, .tour-selection-grid-full-item-5 {
+    transform: translateY(2px);
+  }
+
+  .tour-selection-grid-full-item-1 {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@media all and (-ms-high-contrast: none) and (max-width: 1300px), (-ms-high-contrast: active) and (max-width: 1300px) {
+  .top-form {
+    display: flex;
+  }
+
+  .top-form-item {
+    max-width: 222px;
+    flex: unset;
+    width: 222px;
+  }
+
+  .top-form-quantity {
+    display: block;
+    position: relative;
+  }
+
+  .top-form-quantity .nice-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    min-width: 50%;
+  }
+
+  .top-form-quantity .nice-select:last-child {
+    left: 50%;
+  }
+
+  .tour-selection-grid-small-item-3, .tour-selection-grid-full-item-1, .tour-selection-grid-full-item-2, .tour-selection-grid-full-item-5 {
+    transform: translate(0);
+  }
+
+  .tour-selection-grid-full-item-1 {
+    transform: translate(0);
+    z-index: 11;
+  }
+
+  .tour-selection-grid-full-item-5 {
+    z-index: 10;
+  }
+
+  .ie-margin-fix-country {
+    margin-bottom: 300px;
+  }
+}
+
+@media all and (-ms-high-contrast: none) and (max-width: 1023px), (-ms-high-contrast: active) and (max-width: 1023px) {
+  .tour-selection {
+    margin-bottom: 400px;
+  }
+
+  .tour-selection-grid-small, .tour-selection-grid-full {
+    height: 350px;
+  }
+}
+
+@media all and (-ms-high-contrast: none) and (max-width: 767px), (-ms-high-contrast: active) and (max-width: 767px) {
+  .top-form {
+    height: 450px;
+    width: 100%;
+  }
+
+  .top-form-item {
+    max-width: 100%;
+    width: 100%;
+    height: 58px;
+  }
+}
+
+

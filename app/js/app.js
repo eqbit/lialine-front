@@ -82,11 +82,24 @@ const handleDatepicker = function (selector) {
         let date = new Date(s1).toLocaleDateString("ru-RU"),
           startDate= new Date(s1),
           endDate = new Date(s2),
-          totalDays = Math.floor((Math.abs(endDate - startDate) / 1000) / 86400);
+          totalDays = Math.floor((Math.abs(endDate - startDate) / 1000) / 86400),
+          string = totalDays > 0
+            ? date + ', ' + totalDays + ' ' + getDays(totalDays)
+            : date;
         
-        $datePickerFrom.val(`${date}, ${totalDays} ${getDays(totalDays)}`);
-      }
+        $datePickerFrom.val(string);
+      },
+      hoveringTooltip: false
     });
+
+    const date = new Date(),
+      currentMonth = date.getMonth(),
+      currentYear = date.getFullYear();
+
+    if(currentMonth != 12 && currentMonth != 1 && currentMonth != 2) {
+      $datePickerFrom.data('dateRangePicker').setStart(currentYear + '-12-1').setEnd(currentYear + '-12-1');
+      $datePickerFrom.val('');
+    }
   }
 };
 
@@ -176,10 +189,10 @@ const fillResortsSelect = function (resorts) {
   const $resortSelect = $('[data-resort-select]');
   
   $resortSelect.html('');
-  $resortSelect.append(`<option value="">Любой курорт</option>`);
+  $resortSelect.append('<option value="">Любой курорт</option>');
   
   resorts.forEach(function (resort) {
-    $resortSelect.append(`<option value="${resort}">${resort}</option>`);
+    $resortSelect.append('<option value="' + resort + '">' + resort + '</option>');
   });
   
   $resortSelect.niceSelect('update');

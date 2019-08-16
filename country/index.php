@@ -159,5 +159,7 @@
     <div class="block-sub-margin"></div>
     
     <? get_bottom_form(true); ?>
+
+    <div class="ie-margin-fix-country"></div>
 </div>
 <? require $_SERVER["DOCUMENT_ROOT"]. "/footer.php";
